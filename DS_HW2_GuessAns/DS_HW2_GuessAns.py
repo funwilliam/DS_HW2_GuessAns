@@ -29,7 +29,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 	with open(('./save/test' + str(i) + '.csv'), 'w') as file:
 		file.write('index,ans\n')
 		for j in range(300):
-			file.write(str(int(j))+',')
+			file.write(str(int(j)) + ',')
 			if j == finish_amount:
 				file.write('1' + '\n')
 			else:
@@ -38,7 +38,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 	print(os.popen(command1).read())
 
 #讀取上傳的分數，並把結果寫入紀錄文件
-with open("test.txt", 'a') as file:
+with open("correct.txt", 'a') as file:
 	#該指令需要kaggle api
 	command2 = 'kaggle competitions submissions -v datascience-hw2'
 	tmp = os.popen(command2).read()
@@ -47,8 +47,8 @@ with open("test.txt", 'a') as file:
 	if detect == 'y':
 		result = re.split('\n', tmp)
 		for i in range(0,int(num)):
-			file_name = re.split(',', result[2*int(num)-2*i])[0]
-			score = re.split(',', result[2*int(num)-2*i])[4]
+			file_name = re.split(',', result[2*int(num) - 2*i])[0]
+			score = re.split(',', result[2*int(num) - 2*i])[4]
 			if file_name != 'test' + str(i + len(correct_ans)) + '.csv':
 				sys.exit("下載的資料與剛上傳的資料沒對上，請確認！！")
 			if float(score) == 0.56111:
