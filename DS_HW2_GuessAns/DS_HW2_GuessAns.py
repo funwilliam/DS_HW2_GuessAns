@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import re
 import pandas as pd
@@ -21,7 +21,8 @@ print("現正產生第", finish_amount, '筆~第', int(num) + finish_amount - 1,
 #寫成上傳的.csv檔
 for i in range(finish_amount,finish_amount + int(num)):
 	#這個路徑要改成你的絕對路徑！！然後要加""在頭尾，不然你會想哭
-	path = '"D:' + u'/作業' + '/github/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
+	path = '"D:' + u'/軟體工程' + '/final/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
+	#path = '"D:' + u'/作業' + '/github/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
 	Message = '"第' + str(i) + u'筆測試"'
 	#該指令需要kaggle api
 	command1 = 'kaggle competitions submit -c datascience-hw2 -f ' + path + ' -m \"' + Message + '\"'
