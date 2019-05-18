@@ -18,7 +18,7 @@ print("根據檔案，現在已經判斷完", finish_amount, "筆資料\n")
 num = input("輸入要產生的個數，建議為10：")
 print("現正產生第", finish_amount, '筆~第', int(num) + finish_amount - 1, '筆資料\n')
 
-#寫成上傳的.csv檔
+#寫成上傳的.csv檔後上傳，傳完自動刪除.csv
 for i in range(finish_amount,finish_amount + int(num)):
 	#這個路徑要改成你的絕對路徑！！然後要加""在頭尾，不然你會想哭
 	#path = '"D:' + u'/軟體工程' + '/final/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
@@ -38,6 +38,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 				file.write('0' + '\n')
 		finish_amount += 1
 	print(os.popen(command1).read())
+	os.remove(path)
 
 #讀取上傳的分數，並把結果寫入紀錄文件
 with open("correct.txt", 'a') as file:
