@@ -8,7 +8,7 @@ import numpy as np
 #填寫格式!! public測資：1=true,0=false. private測資：-1
 #最後一列，由於輸出時有加上\n的關係，是空白行！！
 correct_ans = pd.read_csv("correct.txt").values
-print(correct_ans[-1, 0])
+#print(correct_ans[-1, 0])
 finish_amount = len(correct_ans)#已完成的數量(1~300)
 if correct_ans[-1, 0] != finish_amount - 1:
 	sys.exit("txt內有缺值 請確認！！！")
@@ -23,7 +23,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 	#這個路徑要改成你的絕對路徑！！然後要加""在頭尾，不然你會想哭
 	#path = '"D:' + u'/軟體工程' + '/final/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
 	#path = '"D:' + u'/作業' + '/github/DS_HW2_GuessAns/DS_HW2_GuessAns/save/test' + str(i) + '.csv"'
-	path='"'+os.getcwd()+'/save/test' + str(i) + '.csv"'
+	path='"'+os.getcwd()+'\\save\\test' + str(i) + '.csv"'
 	Message = '"第' + str(i) + u'筆測試"'
 	#該指令需要kaggle api
 	command1 = 'kaggle competitions submit -c datascience-hw2 -f ' + path + ' -m \"' + Message + '\"'
@@ -38,7 +38,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 				file.write('0' + '\n')
 		finish_amount += 1
 	print(os.popen(command1).read())
-	os.remove(path)
+	os.remove('./save/test' + str(i) + '.csv')
 
 #讀取上傳的分數，並把結果寫入紀錄文件
 with open("correct.txt", 'a') as file:
