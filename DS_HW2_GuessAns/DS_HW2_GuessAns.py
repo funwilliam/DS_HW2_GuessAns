@@ -63,3 +63,5 @@ with open("correct.txt", 'a') as file:
 			if float(score) < 0.56111:
 				file.write(str(i + len(correct_ans)) + ',0\n')
 				print('第', i + len(correct_ans), '筆測資：False')
+
+os.system('pause')
