@@ -37,7 +37,7 @@ for i in range(finish_amount,finish_amount + int(num)):
 			else:
 				file.write('0' + '\n')
 		finish_amount += 1
-	print(os.popen(command1).read())
+	print('上傳第',i,'筆資料中\n',os.popen(command1).read())
 	os.remove('./save/test' + str(i) + '.csv')
 
 #讀取上傳的分數，並把結果寫入紀錄文件
