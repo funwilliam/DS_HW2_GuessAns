@@ -53,7 +53,8 @@ with open("correct.txt", 'a') as file:
 			file_name = re.split(',', result[2*int(num) - 2*i])[0]
 			score = re.split(',', result[2*int(num) - 2*i])[4]
 			if file_name != 'test' + str(i + len(correct_ans)) + '.csv':
-				sys.exit("下載的資料與剛上傳的資料沒對上，請確認！！")
+				print('下載的資料與剛上傳的資料沒對上，請確認！！')
+				os.system('pause')
 			if float(score) == 0.56111:
 				file.write(str(i + len(correct_ans)) + ',-1\n')
 				print('第', i + len(correct_ans), '筆測資：Private')
